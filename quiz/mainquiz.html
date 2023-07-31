@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link href="../quiz/mainquiz.css" rel="stylesheet">
+</head>
+<body>
+    <div class="timer">
+        <p id="countdown">30:00</p>
+        <script src="timer.js"></script>
+    </div>
+    <div class="app">
+        <h1>Aptitude Quiz</h1>
+        <div class="quiz">
+            <h3 id="question">Question</h3>
+            <div id="answer-buttons">
+                <button class="btn">Answer1</button>
+                <button class="btn">Answer2</button>
+                <button class="btn">Answer3</button>
+                <button class="btn">Answer4</button>
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+    <script >  
+        const questions = [
+    {
+        question: "What is the next number in the series: 2, 5, 10, 17, 26, ___?",
+        answers: [
+            { text: "37", correct: true },
+            { text: "38", correct: false },
+            { text: "39", correct: false },
+            { text: "40", correct: false },
+        ]
+    },
+    {
+        question: "If A = 1, B = 2, C = 3, and so on up to Z = 26, what is the sum of the letters in the word 'APTITUDE'?",
+        answers: [
+            { text: "77", correct: false },
+            { text: "83", correct: true },
+            { text: "89", correct: false },
+            { text: "95", correct: false },
+        ]
+    },
+    {
+        question: "The sum of the ages of John and Mary is 50. If John is twice as old as Mary was when John was the age that Mary is now, how old is Mary?",
+        answers: [
+            { text: "20", correct: true },
+            { text: "25", correct: false },
+            { text: "30", correct: false },
+            { text: "35", correct: false },
+        ]
+    },
+    {
+        question: "A train travels 240 km in 4 hours. If it continues at the same speed, how many additional hours will it take to cover 360 km?",
+        answers: [
+            { text: "4", correct: false },
+            { text: "5", correct: true },
+            { text: "6", correct: false },
+            { text: "7", correct: false },
+        ]
+    },
+    {
+        question: "What is the missing number in the following sequence: 3, 9, 27, 81, ___?",
+        answers: [
+            { text: "161", correct: false },
+            { text: "243", correct: true },
+            { text: "289", correct: false },
+            { text: "324", correct: false },
+        ]
+    },
+    {
+        question: "A clock gains 2 minutes every hour. If the clock is set to the correct time at 12:00 PM, what time will it show after 6 hours?",
+        answers: [
+            { text: "6:08 PM", correct: false },
+            { text: "6:10 PM", correct: false },
+            { text: "6:12 PM", correct: true },
+            { text: "6:14 PM", correct: false },
+        ]
+    },
+    {
+        question: "If x^2 - 4x + 4 = 0, what is the value of x?",
+        answers: [
+            { text: "2", correct: true },
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+            { text: "5", correct: false },
+        ]
+    },
+    {
+        question: "In a class of 40 students, 60% are boys and the rest are girls. If 25% of the boys and 40% of the girls scored above 90% in a test, how many students scored above 90%?",
+        answers: [
+            { text: "12", correct: false },
+            { text: "14", correct: true },
+            { text: "16", correct: false },
+            { text: "18", correct: false },
+        ]
+    },
+    {
+        question: "A shopkeeper offers a 10% discount on the marked price of a shirt. If the discounted price is $45, what was the original marked price?",
+        answers: [
+            { text: "$50", correct: false },
+            { text: "$55", correct: false },
+            { text: "$60", correct: true },
+            { text: "$65", correct: false },
+        ]
+    },
+    {
+        question: "If LOGIC is coded as MPOHD, how is GPT-3 coded?",
+        answers: [
+            { text: "HRW-3", correct: false },
+            { text: "HPU-3", correct: false },
+            { text: "HQV-3", correct: false },
+            { text: "HRV-3", correct: true },
+        ]
+    },
+    {
+        question: "A rectangular field has a length of 30 meters and a diagonal of 34 meters. What is the width of the field?",
+        answers: [
+            { text: "6 meters", correct: false },
+            { text: "8 meters", correct: false },
+            { text: "10 meters", correct: true },
+            { text: "12 meters", correct: false },
+        ]
+    },
+    {
+        question: "A group of friends shared a pizza equally. If each person ate 2 slices, 8 slices were left. How many friends were there in total?",
+        answers: [
+            { text: "6", correct: false },
+            { text: "8", correct: true },
+            { text: "10", correct: false },
+            { text: "12", correct: false },
+        ]
+    },
+    {
+        question: "The sum of the first 50 odd numbers is equal to:",
+        answers: [
+            { text: "1250", correct: false },
+            { text: "2500", correct: false },
+            { text: "3750", correct: true },
+            { text: "5000", correct: false },
+        ]
+    },
+    {
+        question: "If the day after tomorrow is three days after Friday, what day is it today?",
+        answers: [
+            { text: "Monday", correct: false },
+            { text: "Tuesday", correct: false },
+            { text: "Wednesday", correct: false },
+            { text: "Thursday", correct: true },
+        ]
+    },
+    {
+        question: "In a race of 500 meters, A finishes 100 meters ahead of B. If A's speed is 8 m/s, what is B's speed?",
+        answers: [
+            { text: "6 m/s", correct: true },
+            { text: "6.5 m/s", correct: false },
+            { text: "7 m/s", correct: false },
+            { text: "7.5 m/s", correct: false },
+        ]
+    },
+    {
+        question: "What is the average of the first 25 prime numbers?",
+        answers: [
+            { text: "42.4", correct: false },
+            { text: "45.2", correct: false },
+            { text: "47.8", correct: false },
+            { text: "50.6", correct: true },
+        ]
+    },
+    {
+        question: "If 2x + 3y = 12 and 5x - y = 8, what is the value of x + y?",
+        answers: [
+            { text: "2", correct: true },
+            { text: "3", correct: false },
+            { text: "4", correct: false },
+            { text: "5", correct: false },
+        ]
+    },
+    {
+        question: "The sum of three consecutive odd integers is 105. What is the largest of the three integers?",
+        answers: [
+            { text: "33", correct: false },
+            { text: "35", correct: false },
+            { text: "37", correct: false },
+            { text: "39", correct: true },
+        ]
+    },
+    {
+        question: "A square piece of paper is folded in half vertically and then folded in half horizontally. If a hole is punched through the folded paper, how many holes will appear when the paper is unfolded?",
+        answers: [
+            { text: "1", correct: false },
+            { text: "2", correct: false },
+            { text: "3", correct: false },
+            { text: "4", correct: true },
+        ]
+    },
+    {
+        question: "If a basketball costs $20 and a baseball costs $10, and the total cost of 3 basketballs and 5 baseballs is $110, what is the cost of 2 basketballs and 4 baseballs?",
+        answers: [
+            { text: "$70", correct: false },
+            { text: "$75", correct: false },
+            { text: "$80", correct: true },
+            { text: "$85", correct: false },
+        ]
+    },
+];
+
+    </script>
+    <script src="../quiz/mainquiz.js"></script>
+    <script src="timer.js"></script>
+</html> 

@@ -1,0 +1,12 @@
+.top-social {
+    padding: 5px 15px;
+}
+.top-social a{
+    padding: 13px;
+    color: white;
+    font-size: 22px;
+}
+.socialtop{
+    float: right;
+    margin-right: 0;
+}

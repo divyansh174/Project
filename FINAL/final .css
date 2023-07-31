@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.navbar-one{
+    background-color: black;
+    height: 45px;
+    width: 100%;   
+}
+.navbar-one ul{
+    float: left;
+    margin-left: 0;
+}
+.socialtop{
+    float: right;
+    margin-right: 0;
+    margin-left: 100px;
+} 
+.top-social {
+    padding: 5px 15px;
+   
+}
+.top-social a{
+    padding: 7px;
+    color: white;
+    font-size: 22px;
+}
+.top-social a:hover{
+    color: #FF7D00;
+}
+.navbar-one ul li{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: inline-block;
+}
+.navbar-one ul li a{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px;
+    letter-spacing: 1px;
+}
+
+ul li:hover{
+    background-color: #FF7D00;
+    color: white;
+}
+ 
+input[type="search"]{
+    background: transparent;
+    width: 200px;
+    height: 32px;
+    border-radius: 20px;
+    text-align: left;
+    padding-left: 10px;
+    background-color: aliceblue;  
+}
+.srch-btn{
+    background: transparent;
+    width: 25px;
+}
+.navbar-two ul{
+    margin-left: 220px;
+}
+.navbar-two{
+    background-color: black;
+    height: 45px;
+    width: 100%;
+}
+.navbar-two ul li{
+    margin-left: 55px;
+    padding-left: 0px;
+    position: relative;
+    display: inline-block;
+}
+.navbar-two ul li a{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 45px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px;
+}
+
+
+
